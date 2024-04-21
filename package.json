@@ -29,6 +29,18 @@
     "image",
     "typescript"
   ],
+  "homepage": "https://github.com/theodrosyimer/webcapt#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theodrosyimer/webcapt.git"
+  },
+  "bugs": {
+    "url": "https://github.com/theodrosyimer/webcapt/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "tag": "latest"
+  },
   "author": "Theodros Yimer",
   "license": "MIT",
   "devDependencies": {
