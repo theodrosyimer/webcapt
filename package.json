@@ -1,19 +1,21 @@
 {
   "name": "webcapt",
   "bin": {
-    "tscli": "dist/index.js"
+    "webcapt": "dist/index.js"
   },
   "version": "0.0.0",
-  "description": "",
+  "description": "A simple cli to screen capture web pages and save them to disk as images or pdfs.",
   "type": "module",
   "main": "dist/index.js",
   "eslintConfig": {
     "root": true
   },
   "scripts": {
-    "build": "tsc -p tsconfig.json && chmod 755 dist/index.js",
+    "build": "pnpm clean && tsc -p tsconfig.json && chmod 755 dist/index.js",
+    "build-link": "pnpm build && pnpm link-cli",
+    "clean": "shx rm -rf dist/*",
     "dev": "tsc -w -p tsconfig.json",
-    "dev:reset": "pnpm build && pnpm link-cli && pnpm dev",
+    "dev:reset": "pnpm build-link && pnpm dev",
     "link-cli": "(yarn unlink --global || true) && chmod 755 dist/index.js && yarn link --global",
     "lint": "eslint .",
     "release": "release-it",
@@ -29,6 +31,7 @@
     "eslint": "^8.56.0",
     "prettier": "^3.2.5",
     "release-it": "^17.2.0",
+    "shx": "^0.3.4",
     "tsx": "^4.7.2",
     "typescript": "^5.4.5",
     "vitest": "^1.5.0"
