@@ -1,0 +1,61 @@
+# name: Publish
+# on:
+#   push:
+#     branches:
+#       - main
+#   # pull_request:
+#   #   branches:
+#   #     - main
+
+# concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+# jobs:
+#   lint-build-and-publish:
+#     runs-on: ubuntu-latest
+
+#     strategy:
+#       matrix:
+#         node-version: [16, 18, 20]
+
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v4
+#         with:
+#           fetch-depth: 0
+
+#       - name: Set Git User
+#         run: |
+#           git config user.name "${{ secrets.GH_USERNAME }}"
+#           git config user.email "${{ secrets.GH_MAIL_USERNAME_ID }}@users.noreply.github.com"
+
+#       - name: Set NPM TOKEN
+#         env:
+#           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+#         run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
+
+#       - name: Install pnpm
+#         uses: pnpm/action-setup@v2
+#         id: pnpm-install
+#         with:
+#           version: 8
+
+#       - name: Install Node.js
+#         uses: actions/setup-node@v3
+#         with:
+#           node-version: ${{ matrix.node-version }}
+#           cache: 'pnpm'
+
+#       - name: Install dependencies
+#         run: pnpm install --frozen-lockfile
+
+#       - name: Lint & Build
+#         run: pnpm lint && pnpm build
+
+#       - name: Release & Publish
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+#           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+#         run: pnpm release --ci
+
+#       - name: End
+#         run: echo "Done!"

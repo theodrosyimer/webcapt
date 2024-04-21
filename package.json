@@ -1,0 +1,40 @@
+{
+  "name": "webcapt",
+  "bin": {
+    "tscli": "dist/index.js"
+  },
+  "version": "0.0.0",
+  "description": "",
+  "type": "module",
+  "main": "dist/index.js",
+  "eslintConfig": {
+    "root": true
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && chmod 755 dist/index.js",
+    "dev": "tsc -w -p tsconfig.json",
+    "dev:reset": "pnpm build && pnpm link-cli && pnpm dev",
+    "link-cli": "(yarn unlink --global || true) && chmod 755 dist/index.js && yarn link --global",
+    "lint": "eslint .",
+    "release": "release-it",
+    "test": "vitest"
+  },
+  "keywords": [],
+  "author": "Theodros Yimer",
+  "license": "MIT",
+  "devDependencies": {
+    "@release-it/conventional-changelog": "^8.0.1",
+    "@thyi/eslint-config": "^1.27.3",
+    "@types/node": "^20.12.7",
+    "eslint": "^8.56.0",
+    "prettier": "^3.2.5",
+    "release-it": "^17.2.0",
+    "tsx": "^4.7.2",
+    "typescript": "^5.4.5",
+    "vitest": "^1.5.0"
+  },
+  "dependencies": {
+    "commander": "^12.0.0",
+    "playwright": "^1.43.1"
+  }
+}

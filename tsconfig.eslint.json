@@ -1,0 +1,27 @@
+{
+  "display": "Node LTS",
+  "_version": "20.1.0",
+  "compilerOptions": {
+    "outDir": "dist",
+    "lib": [
+      "es2023"
+    ],
+    "module": "node16",
+    "target": "es2022",
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node16"
+  },
+  "include": [
+    "src",
+    "vitest.config.ts",
+    // "tests"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+  ]
+}
