@@ -2,7 +2,7 @@ name: Release and Publish
 on:
   workflow_run:
     workflows: ["Lint and Build"]
-    types: [requested]
+    types: [completed]
     branches:
       - main
   # pull_request:
