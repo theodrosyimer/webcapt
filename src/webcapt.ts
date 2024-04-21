@@ -14,9 +14,14 @@ webcapt
 
 webcapt
   .command('pdf')
+  .description('Screenshot the provided url and download as a pdf')
   .option('-u, --url <url>', 'URL to download') // https://www.udemy.com/
   .option('-o, --output <output>', 'Output file name')
-  .option('-f, --format <type>', 'Type of file to download, default: A4', 'A4')
+  .option(
+    '-f, --format <format>',
+    'Format of the file to download, options: A4 or letter, default: A4',
+    'A4',
+  )
   .action(
     (options: { url: string; output: string; format: 'A4' | 'letter' }) => {
       downloadPDF(options.url, options.output, options.format)
@@ -25,11 +30,12 @@ webcapt
 
 webcapt
   .command('img')
+  .description('Screenshot the provided url and download as an image')
   .option('-u, --url <url>', 'URL to download') // https://www.udemy.com/
   .option('-o, --output <output>', 'Output file name')
   .option(
-    '-f, --format <type>',
-    'Type of file to download could be png or jpeg, default: png',
+    '-f, --format <format>',
+    'Format of the file to download, options: png or jpeg, default: png',
     'png',
   )
   .action(
