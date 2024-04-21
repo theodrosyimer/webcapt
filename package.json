@@ -21,7 +21,14 @@
     "release": "release-it",
     "test": "vitest"
   },
-  "keywords": [],
+  "keywords": [
+    "playwright",
+    "webcapture",
+    "screenshot",
+    "pdf",
+    "image",
+    "typescript"
+  ],
   "author": "Theodros Yimer",
   "license": "MIT",
   "devDependencies": {
