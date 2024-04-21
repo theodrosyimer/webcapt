@@ -2,9 +2,11 @@
 
 import { chromium } from 'playwright'
 
-const imgFormat = 'png'
-
-export function downloadImg(url: string, output?: string) {
+export function downloadImg(
+  url: string,
+  output?: string,
+  format: 'png' | 'jpeg' = 'png',
+) {
   ;(async () => {
     const browser = await chromium.launch()
     const context = await browser.newContext()
@@ -26,9 +28,8 @@ export function downloadImg(url: string, output?: string) {
       }
 
       await page.screenshot({
-        path: `${output}.${imgFormat}`,
+        path: `${output}.${format}`,
         fullPage: true,
-        type: `${imgFormat}`,
       })
       console.log('Done!')
       process.exit(0)

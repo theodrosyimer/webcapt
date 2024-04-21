@@ -2,9 +2,13 @@
 
 import { chromium } from 'playwright'
 
-const pdfFormat = 'A4'
+const defaultPdfFormat = 'A4'
 
-export function downloadPDF(url: string, output?: string) {
+export function downloadPDF(
+  url: string,
+  output?: string,
+  format = defaultPdfFormat,
+) {
   ;(async () => {
     const browser = await chromium.launch()
     const context = await browser.newContext()
@@ -14,7 +18,6 @@ export function downloadPDF(url: string, output?: string) {
       // await page.setViewportSize({ width: 1280, height: 800 })
       await page.goto(url)
       await page.waitForLoadState('networkidle')
-      // await page.emulateMedia({ media: 'print' })
 
       if (!output) {
         const [pageTitle] = url.split('/').slice(-1)
@@ -23,11 +26,12 @@ export function downloadPDF(url: string, output?: string) {
         console.log(output)
       }
 
+      // await page.emulateMedia({ media: 'print' })
       await page.emulateMedia({ media: 'screen' })
 
       await page.pdf({
         path: `${output}.pdf`,
-        format: pdfFormat,
+        format,
         printBackground: true,
       })
 
