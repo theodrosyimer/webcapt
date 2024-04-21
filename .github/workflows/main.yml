@@ -1,4 +1,4 @@
-name: CI
+name: Lint and Build
 on:
   push:
     branches:
@@ -10,7 +10,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18, 20]
+        node-version: [16, 18, 20]
 
     steps:
       - name: Checkout
@@ -19,7 +19,7 @@ jobs:
           fetch-depth: 0
 
       - name: Install pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v3
         id: pnpm-install
         with:
           version: 8

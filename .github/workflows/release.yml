@@ -1,6 +1,8 @@
-name: Publish
+name: Release and Publish
 on:
-  push:
+  workflow_run:
+    workflows: ["Lint and Build"]
+    types: [requested]
     branches:
       - main
   # pull_request:
@@ -19,7 +21,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18, 20]
+        node-version: [16, 18, 20]
 
     steps:
       - name: Checkout
@@ -38,13 +40,13 @@ jobs:
         run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
 
       - name: Install pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v3
         id: pnpm-install
         with:
           version: 8
 
       - name: Install Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
@@ -52,10 +54,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Lint & Build
-        run: pnpm lint && pnpm build
-
-      - name: Release & Publish
+      - name: Release and Publish
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
