@@ -15,7 +15,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16, 18, 20]
+        node-version: [18, 20]
 
     steps:
       - name: Checkout
@@ -47,6 +47,9 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+
+      - name: Lint & Build
+        run: pnpm lint && pnpm build
 
       - name: Release & Publish
         env:
