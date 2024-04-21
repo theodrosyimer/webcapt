@@ -1,6 +1,6 @@
 # webcapt - CLI for web capture
 
-<details close><summary>Table of Contents</summary>
+<details><summary>Table of Contents</summary>
 
 - [Motivation](#motivation)
 - [Quick start](#quick-start)
