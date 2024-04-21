@@ -7,7 +7,6 @@
   - [Install](#install)
 - [Usage](#usage)
   - [Examples](#examples)
-- [Documentation](#documentation)
 - [Contribute](#contribute)
   - [Clone the repo](#clone-the-repo)
   - [Install dependencies](#install-dependencies)
@@ -29,18 +28,71 @@ A simple cli to screen capture web pages and save them to disk as images or pdfs
 
 ### Install
 
+```sh
+npm install -g webcapt
+```
+
+```sh
+pnpm install -g webcapt
+```
+
+
 <!--
-```sh
-npm install -g @thyi/webcapt-CLI
-```
-
-```sh
-npm install --save @thyi/webcapt-LIB
-```
-
-To see this awesome project, navigate to [webcapt](https://webcapt.com). -->
+ To see this awesome project, navigate to [webcapt](https://webcapt.com). -->
 
 ## Usage
+
+```sh
+webcapt -h
+```
+
+```sh
+Usage: webcapt [options] [command]
+
+A simple cli to screen capture web pages and save them to disk as images or pdfs.
+
+Options:
+  -V, --version   output the version number
+  -h, --help      display help for command
+
+Commands:
+  pdf [options]   Screenshot the provided url and download as a pdf
+  img [options]   Screenshot the provided url and download as an image
+  help [command]  display help for command
+```
+
+```sh
+wbecapt pdf -h
+```
+
+```sh
+Usage: webcapt pdf [options]
+
+Screenshot the provided url and download as a pdf
+
+Options:
+  -u, --url <url>        URL to download
+  -o, --output <output>  Output file name
+  -f, --format <format>  Format of the file to download, options: A4 or letter, default: A4 (default: "A4")
+  -h, --help             display help for command
+```
+
+```sh
+webcapt img -h
+```
+
+```sh
+Usage: webcapt img [options]
+
+Screenshot the provided url and download as an image
+
+Options:
+  -u, --url <url>        URL to download
+  -o, --output <output>  Output file name
+  -f, --format <format>  Format of the file to download, options: png or jpeg, default: png (default: "png")
+  -h, --help             display help for command
+```
+
 <!--
 Available flags:
 
@@ -63,15 +115,23 @@ Available flags:
 
 ### Examples
 
-<!-- ```sh
-webcapt --input ./input --output ./output
-``` -->
+> Note: For pdfs and images, you don't need to specify the file's extension if you want to download to a format other than the default, you can use the `-f` flag and specify the file's format.
 
-<!-- ... -->
+```sh
+webcapt pdf -u https://google.com -o example
+```
 
-## Documentation
+If you want to download an image in jpeg format, you need to specify the file's format.
 
-<!-- See the [documentation](https://webcapt.com/docs) for more information. -->
+```sh
+webcapt img -u https://google.com -o example -f jpeg
+```
+
+If you want to download a pdf in letter format, you need to specify the file's format.
+
+```sh
+webcapt pdf -u https://google.com -o example -f letter
+```
 
 ## Contribute
 
