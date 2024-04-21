@@ -23,6 +23,7 @@
 ## Motivation
 
 <!-- ## Prerequisites -->
+A simple cli to screen capture web pages and save them to disk as images or pdfs.
 
 ## Quick start
 
@@ -30,14 +31,14 @@
 
 <!--
 ```sh
-npm install -g @thyi/PROJECT-NAME-CLI
+npm install -g @thyi/webcapt-CLI
 ```
 
 ```sh
-npm install --save @thyi/PROJECT-NAME-LIB
+npm install --save @thyi/webcapt-LIB
 ```
 
-To see this awesome project, navigate to [PROJECT-NAME](https://PROJECT-NAME.com). -->
+To see this awesome project, navigate to [webcapt](https://webcapt.com). -->
 
 ## Usage
 <!--
@@ -63,46 +64,46 @@ Available flags:
 ### Examples
 
 <!-- ```sh
-PROJECT-NAME --input ./input --output ./output
+webcapt --input ./input --output ./output
 ``` -->
 
 <!-- ... -->
 
 ## Documentation
 
-<!-- See the [documentation](https://PROJECT-NAME.com/docs) for more information. -->
+<!-- See the [documentation](https://webcapt.com/docs) for more information. -->
 
 ## Contribute
 
 ### Clone the repo
 
 ```sh
-git clone https://github.com/theodrosyimer/PROJECT-NAME@latest
-cd PROJECT-NAME
+git clone https://github.com/theodrosyimer/webcapt@latest
+cd webcapt
 ```
 
 ### Install dependencies
 
 ```sh
-npm install
+pnpm install
 ```
 
 ### Develop
 
 ```sh
-npm run dev
+pnpm run dev
 ```
 
 ### Build the project
 
 ```sh
-npm run build
+pnpm run build
 ```
 
 ### Run the project
 
 ```sh
-npm start
+pnpm start
 ```
 
 ### Run tests
@@ -113,7 +114,7 @@ npm test
 
 ### Submit a pull request
 
-If you'd like to contribute code, documentation, or any other improvements, please [fork the project](https://gihub.com/theodrosyimer/PROJECT-NAME/fork), make your changes, and submit a pull request.
+If you'd like to contribute code, documentation, or any other improvements, please [fork the project](https://gihub.com/theodrosyimer/webcapt/fork), make your changes, and submit a pull request.
 
 If you're unsure about adding a feature or fixing a bug, create an issue to discuss it first.
 
