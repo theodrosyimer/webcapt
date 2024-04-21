@@ -121,13 +121,13 @@ Available flags:
 webcapt pdf -u https://google.com -o example
 ```
 
-If you want to download an image in jpeg format, you need to specify the file's format.
+If you want to download an image in jpeg format:
 
 ```sh
 webcapt img -u https://google.com -o example -f jpeg
 ```
 
-If you want to download a pdf in letter format, you need to specify the file's format.
+If you want to download a pdf in letter format:
 
 ```sh
 webcapt pdf -u https://google.com -o example -f letter
