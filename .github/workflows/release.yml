@@ -13,6 +13,10 @@ jobs:
   lint-build-and-publish:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write
+      # pull-requests: write
+
     strategy:
       matrix:
         node-version: [18, 20]
