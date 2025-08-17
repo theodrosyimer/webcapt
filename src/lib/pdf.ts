@@ -9,7 +9,7 @@ export function downloadPDF(
   output?: string,
   format = defaultPdfFormat,
 ) {
-  ;(async () => {
+  ;void (async () => {
     const browser = await chromium.launch()
     const context = await browser.newContext()
     try {
@@ -21,7 +21,6 @@ export function downloadPDF(
 
       if (!output) {
         const [pageTitle] = url.split('/').slice(-1)
-        // eslint-disable-next-line no-param-reassign
         output = pageTitle
         console.log(output)
       }
