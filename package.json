@@ -22,7 +22,7 @@
     "test": "vitest"
   },
   "keywords": [
-    "playwright",
+    "puppeteer",
     "webcapture",
     "screenshot",
     "pdf",
