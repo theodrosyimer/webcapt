@@ -1,7 +1,7 @@
 import { Command } from 'commander'
 
-import { downloadPDF } from './lib/pdf.js'
 import { downloadImg } from './lib/img.js'
+import { downloadPDF } from './lib/pdf.js'
 
 export const webcapt = new Command()
 
