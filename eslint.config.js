@@ -1,8 +1,8 @@
 import baseConfig from "@thyi/eslint-config"
 
-export default {
+export default [
   ...baseConfig,
-
+  {
     languageOptions: {
       parserOptions: {
         tsconfigRootDir: import.meta.dirname,
@@ -17,5 +17,6 @@ export default {
           devDependencies: true,
         },
       ],
+    },
   },
-}
+]
