@@ -19,7 +19,8 @@
     "link-cli": "(yarn unlink --global || true) && chmod 755 dist/index.js && yarn link --global",
     "lint": "eslint .",
     "release": "release-it",
-    "test": "vitest"
+    "test": "vitest",
+    "postinstall": "npx puppeteer browsers install chrome"
   },
   "keywords": [
     "puppeteer",
