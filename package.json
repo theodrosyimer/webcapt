@@ -3,7 +3,7 @@
   "bin": {
     "webcapt": "dist/index.js"
   },
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "A simple cli to screen capture web pages and save them to disk as images or pdfs.",
   "type": "module",
   "main": "dist/index.js",
