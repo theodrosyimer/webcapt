@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-import { chromium } from 'playwright'
+import puppeteer, { type PaperFormat } from 'puppeteer'
 
-const defaultPdfFormat = 'A4'
+const defaultPdfFormat: PaperFormat = 'A4'
 
 export function downloadPDF(
   url: string,
@@ -10,14 +10,11 @@ export function downloadPDF(
   format = defaultPdfFormat,
 ) {
   ;void (async () => {
-    const browser = await chromium.launch()
-    const context = await browser.newContext()
+    const browser = await puppeteer.launch()
     try {
-      const page = await context.newPage()
+      const page = await browser.newPage()
 
-      // await page.setViewportSize({ width: 1280, height: 800 })
-      await page.goto(url)
-      await page.waitForLoadState('networkidle')
+      await page.goto(url, { waitUntil: 'networkidle0' })
 
       if (!output) {
         const [pageTitle] = url.split('/').slice(-1)
@@ -25,8 +22,7 @@ export function downloadPDF(
         console.log(output)
       }
 
-      // await page.emulateMedia({ media: 'print' })
-      await page.emulateMedia({ media: 'screen' })
+      await page.emulateMediaType('screen')
 
       await page.pdf({
         path: `${output}.pdf`,
