@@ -6,7 +6,7 @@ import { setup } from './setup.js'
 import { generatePDF } from '../src/lib/generate/pdf.js'
 import { closeBrowser, findChrome } from '../src/lib/utils/find-chrome.js'
 
-describe.skip('Feature: PDF Generation', () => {
+describe('Feature: PDF Generation', () => {
   const { testFiles, setBaseDirectory } = setup()
   const { getPath } = setBaseDirectory('pdf')
 
