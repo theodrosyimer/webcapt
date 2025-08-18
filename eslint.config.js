@@ -1,4 +1,4 @@
-import baseConfig from "@thyi/eslint-config"
+import baseConfig from '@thyi/eslint-config'
 
 export default [
   ...baseConfig,

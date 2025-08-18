@@ -3,9 +3,7 @@
   "_version": "20.1.0",
   "compilerOptions": {
     "outDir": "dist",
-    "lib": [
-      "es2023"
-    ],
+    "lib": ["es2023"],
     "module": "node16",
     "target": "es2022",
     "strict": true,
@@ -16,12 +14,12 @@
     "moduleResolution": "node16"
   },
   "include": [
-    "src",
+    "src"
     // "vitest.config.ts",
   ],
   "exclude": [
     "node_modules",
-    "dist",
+    "dist"
     // "tests"
   ]
 }
