@@ -27,6 +27,9 @@ pnpm test:all
 # Run integration tests only
 pnpm test:int
 
+# Run e2e tests only
+pnpm test:e2e
+
 # Run tests with coverage report
 pnpm test:coverage
 
