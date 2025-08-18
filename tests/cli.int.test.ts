@@ -9,7 +9,7 @@ import { webcapt } from '../src/webcapt.js'
 
 export const DELETE_TEST_FILES = true
 
-describe.concurrent('Webcapt CLI', () => {
+describe('Webcapt CLI', () => {
   const { setBaseDirectory } = setup()
   const { arrange, clean } = setBaseDirectory('cli')
 
