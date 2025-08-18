@@ -2,4 +2,4 @@
 
 import { webcapt } from './webcapt.js'
 
-webcapt.parse()
+webcapt.command.parse()

@@ -5,7 +5,7 @@ import { type GeneratePdfOptions, generatePDF } from './lib/generate/pdf.js'
 import { closeBrowser } from './lib/utils/find-chrome.js'
 
 class Webcapt {
-  constructor(private readonly command: Command) {
+  constructor(readonly command: Command) {
     this.command
       .name('webcapt')
       .version('0.0.1')
