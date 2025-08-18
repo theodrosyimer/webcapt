@@ -24,7 +24,7 @@ class Webcapt {
         'A4',
       )
       .action((options: GeneratePdfOptions) => {
-        void this.downloadPDF(options)
+        void this.pdf(options)
       })
 
     this.command
@@ -38,25 +38,11 @@ class Webcapt {
         'png',
       )
       .action((options: GenerateImageOptions) => {
-        void this.downloadImg(options)
+        void this.img(options)
       })
   }
 
-  async pdf(options: GeneratePdfOptions): Promise<string | undefined> {
-    return await generatePDF({
-      url: options.url,
-      pdfOptions: options.pdfOptions,
-    })
-  }
-
-  async img(options: GenerateImageOptions): Promise<string | undefined> {
-    return await generateImage({
-      url: options.url,
-      screenshotOptions: options.screenshotOptions,
-    })
-  }
-
-  private async downloadPDF(options: GeneratePdfOptions) {
+  async pdf(options: GeneratePdfOptions): Promise<void> {
     try {
       const outputPath = await generatePDF({
         url: options.url,
@@ -64,18 +50,16 @@ class Webcapt {
       })
       console.log(`Generated: ${outputPath}`)
       console.log('Done!')
-      process.exit(0)
     } catch (e) {
       if (e instanceof Error) {
         console.error(e.message)
       }
-      process.exit(1)
     } finally {
       await closeBrowser()
     }
   }
 
-  private async downloadImg(options: GenerateImageOptions) {
+  async img(options: GenerateImageOptions): Promise<void> {
     try {
       const outputPath = await generateImage({
         url: options.url,
@@ -83,12 +67,10 @@ class Webcapt {
       })
       console.log(`Generated: ${outputPath}`)
       console.log('Done!')
-      process.exit(0)
     } catch (e) {
       if (e instanceof Error) {
         console.error(e.message)
       }
-      process.exit(1)
     } finally {
       await closeBrowser()
     }
