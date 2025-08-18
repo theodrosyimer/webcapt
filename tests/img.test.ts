@@ -1,15 +1,16 @@
-import { existsSync, unlinkSync } from 'fs'
+import { existsSync } from 'fs'
 
 import type { ScreenshotOptions } from 'puppeteer'
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 
+import { DELETE_TEST_FILES } from './cli.int.test.js'
 import { setup } from './setup.js'
 import { generateImage } from '../src/lib/generate/image.js'
 import { closeBrowser, findChrome } from '../src/lib/utils/find-chrome.js'
 
 describe('Image Generation', () => {
-  const { testFiles, setBaseDirectory } = setup()
-  const { getPath } = setBaseDirectory('image')
+  const { setBaseDirectory } = setup()
+  const { arrange, clean } = setBaseDirectory('image')
 
   beforeAll(async () => {
     try {
@@ -21,19 +22,17 @@ describe('Image Generation', () => {
   })
 
   afterAll(async () => {
-    testFiles.forEach((file) => {
-      if (existsSync(file)) {
-        unlinkSync(file)
-      }
-    })
-    testFiles.length = 0
+    clean(DELETE_TEST_FILES)
     await closeBrowser()
   })
 
   describe('Scenario: Generate PNG from a simple webpage', () => {
     it('should generate PNG from a simple webpage', async () => {
-      const filename = 'test-simple-page'
-      const { userInput, output } = getPath({ filename, type: 'image', extension: 'png' })
+      const { userInput, output } = arrange({
+        filename: 'test-simple-page',
+        type: 'image',
+        extension: 'png',
+      })
 
       const result = await generateImage({
         url: 'data:text/html,<h1>Test Page</h1><p>This is a test</p>',
@@ -41,31 +40,30 @@ describe('Image Generation', () => {
       })
 
       expect(result).toBe(output)
-      expect(existsSync(output)).toBe(true)
     })
     it('should exists on disk', async () => {
-      const filename = 'test-simple-page'
-      const { userInput, output } = getPath({ filename, type: 'image', extension: 'png' })
+      const { userInput, output } = arrange({
+        filename: 'test-simple-page',
+        type: 'image',
+        extension: 'png',
+      })
 
-      /*       try { */
       await generateImage({
         url: 'data:text/html,<h1>Test Page</h1><p>This is a test</p>',
         screenshotOptions: { type: 'png', path: userInput as ScreenshotOptions['path'] },
       })
 
       expect(existsSync(output)).toBe(true)
-    } /* finally {
-        if (existsSync(output)) {
-          unlinkSync(output)
-        }
-      }
-    } */)
+    })
   })
 
   describe('Scenario: Generate JPEG from a webpage', () => {
     it('should generate JPEG from a webpage', async () => {
-      const filename = 'test-jpeg-page'
-      const { userInput, output } = getPath({ filename, type: 'image', extension: 'jpeg' })
+      const { userInput, output } = arrange({
+        filename: 'test-jpeg-page',
+        type: 'image',
+        extension: 'jpeg',
+      })
 
       const result = await generateImage({
         url: 'data:text/html,<h1>JPEG Test</h1><p>This should be a JPEG</p>',
@@ -75,28 +73,28 @@ describe('Image Generation', () => {
       expect(result).toBe(output)
     })
     it('should exists on disk', async () => {
-      const filename = 'test-jpeg-page'
-      const { userInput, output } = getPath({ filename, type: 'image', extension: 'jpeg' })
+      const { userInput, output } = arrange({
+        filename: 'test-jpeg-page',
+        type: 'image',
+        extension: 'jpeg',
+      })
 
-      /*      try { */
       await generateImage({
         url: 'data:text/html,<h1>JPEG Test</h1><p>This should be a JPEG</p>',
         screenshotOptions: { type: 'jpeg', path: userInput as ScreenshotOptions['path'] },
       })
 
       expect(existsSync(output)).toBe(true)
-    } /* finally {
-        if (existsSync(output)) {
-          unlinkSync(output)
-        }
-      }
-    } */)
+    })
   })
 
   describe('Scenario: Default format', () => {
     it('should default to PNG format when not specified', async () => {
-      const filename = 'test-default-format'
-      const { userInput, output } = getPath({ filename, type: 'image', extension: 'png' })
+      const { userInput, output } = arrange({
+        filename: 'test-default-format',
+        type: 'image',
+        extension: 'png',
+      })
 
       const result = await generateImage({
         url: 'data:text/html,<h1>Default Format Test</h1>',
@@ -106,22 +104,19 @@ describe('Image Generation', () => {
       expect(result).toBe(output)
     })
     it('should exists on disk', async () => {
-      const filename = 'test-default-format'
-      const { userInput, output } = getPath({ filename, type: 'image', extension: 'png' })
+      const { userInput, output } = arrange({
+        filename: 'test-default-format',
+        type: 'image',
+        extension: 'png',
+      })
 
-      /*     try { */
       await generateImage({
         url: 'data:text/html,<h1>Default Format Test</h1>',
         screenshotOptions: { type: 'png', path: userInput as ScreenshotOptions['path'] },
       })
 
       expect(existsSync(output)).toBe(true)
-    } /* finally {
-      if (existsSync(outputPath)) {
-        unlinkSync(outputPath)
-        }
-      }
-    } */)
+    })
   })
 
   it('should do nothing when an input is not provided', async () => {

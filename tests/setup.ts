@@ -1,4 +1,4 @@
-import { mkdirSync } from 'fs'
+import { existsSync, mkdirSync, unlinkSync } from 'fs'
 
 import type { ScreenshotOptions } from 'puppeteer'
 
@@ -15,7 +15,7 @@ export const setup = () => {
       mkdirSync(modifiedBaseDir, { recursive: true })
       return {
         baseDir: modifiedBaseDir,
-        getPath: ({
+        arrange: ({
           filename,
           type,
           extension,
@@ -28,16 +28,25 @@ export const setup = () => {
             return { userInput: undefined, output: '' }
           }
           if (type === 'image') {
+            testFiles.push(`${modifiedBaseDir}/${filename}.${extension}`)
             const userInput = `${modifiedBaseDir}/${filename}`
             return {
               userInput: userInput as ScreenshotOptions['path'],
               output: `${userInput}.${extension}`,
             }
           }
+          testFiles.push(`${modifiedBaseDir}/${filename}.${extension}`)
           const userInput = `${modifiedBaseDir}/${filename}`
           return { userInput, output: `${userInput}.${extension}` }
         },
-        testFiles,
+        clean: (deleteFiles: boolean) => {
+          testFiles.forEach((file) => {
+            if (deleteFiles && existsSync(file)) {
+              unlinkSync(file)
+            }
+          })
+          testFiles.length = 0
+        },
       }
     },
   }

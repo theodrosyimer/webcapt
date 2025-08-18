@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { findChrome } from '../src/lib/utils/find-chrome.js'
 import { inMemoryFs } from '../src/lib/utils/fs.js'
 
-describe('Chrome Finding', () => {
+describe.concurrent('Chrome Finding', () => {
   it('should find Chrome on macOS', () => {
     const macOSPath = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
     const fileChecker = inMemoryFs([macOSPath])
