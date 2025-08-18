@@ -146,3 +146,6 @@ typings/
 # Misc
 .lsp
 .clj-kondo
+
+# Test files
+generated-test-files
