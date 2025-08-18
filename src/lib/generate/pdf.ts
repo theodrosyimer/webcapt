@@ -4,7 +4,6 @@ import { getChromeBrowser } from '../utils/find-chrome.js'
 
 const defaultPdfOptions = {
   format: 'A4',
-  printBackground: true,
 } satisfies PDFOptions
 
 export type GeneratePdfOptions = {
