@@ -32,6 +32,7 @@ describe('Webcapt CLI', () => {
           path: userInput,
         },
       })
+
       expect(existsSync(output)).toBe(true)
       expect(output).toContain('test-default.pdf')
     })
@@ -49,6 +50,7 @@ describe('Webcapt CLI', () => {
         url: 'data:text/html,<h1>Default Image Format</h1>',
         screenshotOptions: { path: userInput as ScreenshotOptions['path'] },
       })
+
       expect(existsSync(output)).toBe(true)
       expect(output).toContain('test-default-img.png')
     })

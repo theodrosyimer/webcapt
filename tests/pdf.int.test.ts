@@ -42,6 +42,7 @@ describe('Feature: PDF Generation', () => {
 
       expect(result).toBe(output)
     })
+
     it('should exists on disk', async () => {
       const { userInput, output } = arrange({
         filename: 'test-simple-page',
@@ -78,6 +79,7 @@ describe('Feature: PDF Generation', () => {
 
       expect(result).toBe(output)
     })
+
     it('should exists on disk', async () => {
       const { userInput, output } = arrange({
         filename: 'test-letter-format',
@@ -133,6 +135,7 @@ describe('Feature: PDF Generation', () => {
 
       expect(result).toBe(output)
     })
+
     it('should exists on disk', async () => {
       const { userInput, output } = arrange({
         filename: 'test-complex-html',

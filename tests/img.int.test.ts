@@ -8,7 +8,7 @@ import { setup } from './setup.js'
 import { generateImage } from '../src/lib/generate/image.js'
 import { closeBrowser, findChrome } from '../src/lib/utils/find-chrome.js'
 
-describe('Image Generation', () => {
+describe('Feature: Image Generation', () => {
   const { setBaseDirectory } = setup()
   const { arrange, clean } = setBaseDirectory('image')
 
@@ -41,6 +41,7 @@ describe('Image Generation', () => {
 
       expect(result).toBe(output)
     })
+
     it('should exists on disk', async () => {
       const { userInput, output } = arrange({
         filename: 'test-simple-page',
@@ -72,6 +73,7 @@ describe('Image Generation', () => {
 
       expect(result).toBe(output)
     })
+
     it('should exists on disk', async () => {
       const { userInput, output } = arrange({
         filename: 'test-jpeg-page',
@@ -103,6 +105,7 @@ describe('Image Generation', () => {
 
       expect(result).toBe(output)
     })
+
     it('should exists on disk', async () => {
       const { userInput, output } = arrange({
         filename: 'test-default-format',
