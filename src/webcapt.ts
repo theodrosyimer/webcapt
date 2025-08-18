@@ -1,4 +1,5 @@
 import { Command } from 'commander'
+import type { ImageFormat, PaperFormat, ScreenshotOptions } from 'puppeteer'
 
 import { type GenerateImageOptions, generateImage } from './lib/generate/image.js'
 import { type GeneratePdfOptions, generatePDF } from './lib/generate/pdf.js'
@@ -23,8 +24,11 @@ class Webcapt {
         'Format of the file to download, options: A4 or letter, default: A4',
         'A4',
       )
-      .action((options: GeneratePdfOptions) => {
-        void this.pdf(options)
+      .action((options: { url: string; output: string; format: string }) => {
+        void this.pdf({
+          url: options.url,
+          pdfOptions: { path: options.output, format: options.format as PaperFormat },
+        })
       })
 
     this.command
@@ -37,8 +41,14 @@ class Webcapt {
         'Format of the file to download, options: png or jpeg, default: png',
         'png',
       )
-      .action((options: GenerateImageOptions) => {
-        void this.img(options)
+      .action((options: { url: string; output: string; format: string }) => {
+        void this.img({
+          url: options.url,
+          screenshotOptions: {
+            path: options.output as ScreenshotOptions['path'],
+            type: options.format as ImageFormat,
+          },
+        })
       })
   }
 
