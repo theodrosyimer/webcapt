@@ -1,45 +1,102 @@
 import { Command } from 'commander'
 
-import { downloadImg } from './lib/img.js'
-import { downloadPDF } from './lib/pdf.js'
+import { type GenerateImageOptions, generateImage } from './lib/generate/image.js'
+import { type GeneratePdfOptions, generatePDF } from './lib/generate/pdf.js'
+import { closeBrowser } from './lib/utils/find-chrome.js'
 
-export const webcapt = new Command()
+class Webcapt {
+  constructor(private readonly command: Command) {
+    this.command
+      .name('webcapt')
+      .version('0.0.1')
+      .description(
+        'A simple cli to screen capture web pages and save them to disk as images or pdfs.',
+      )
 
-webcapt
-  .name('webcapt')
-  .version('0.0.1')
-  .description(
-    'A simple cli to screen capture web pages and save them to disk as images or pdfs.',
-  )
+    this.command
+      .command('pdf')
+      .description('Screenshot the provided url and download as a pdf')
+      .option('-u, --url <url>', 'URL to download') // https://www.udemy.com/
+      .option('-o, --output <output>', 'Output file name')
+      .option(
+        '-f, --format <format>',
+        'Format of the file to download, options: A4 or letter, default: A4',
+        'A4',
+      )
+      .action((options: GeneratePdfOptions) => {
+        void this.downloadPDF(options)
+      })
 
-webcapt
-  .command('pdf')
-  .description('Screenshot the provided url and download as a pdf')
-  .option('-u, --url <url>', 'URL to download') // https://www.udemy.com/
-  .option('-o, --output <output>', 'Output file name')
-  .option(
-    '-f, --format <format>',
-    'Format of the file to download, options: A4 or letter, default: A4',
-    'A4',
-  )
-  .action(
-    (options: { url: string; output: string; format: 'A4' | 'letter' }) => {
-      downloadPDF(options.url, options.output, options.format)
-    },
-  )
+    this.command
+      .command('img')
+      .description('Screenshot the provided url and download as an image')
+      .option('-u, --url <url>', 'URL to download') // https://www.udemy.com/
+      .option('-o, --output <output>', 'Output file name')
+      .option(
+        '-f, --format <format>',
+        'Format of the file to download, options: png or jpeg, default: png',
+        'png',
+      )
+      .action((options: GenerateImageOptions) => {
+        void this.downloadImg(options)
+      })
+  }
 
-webcapt
-  .command('img')
-  .description('Screenshot the provided url and download as an image')
-  .option('-u, --url <url>', 'URL to download') // https://www.udemy.com/
-  .option('-o, --output <output>', 'Output file name')
-  .option(
-    '-f, --format <format>',
-    'Format of the file to download, options: png or jpeg, default: png',
-    'png',
-  )
-  .action(
-    (options: { url: string; output: string; format: 'png' | 'jpeg' }) => {
-      downloadImg(options.url, options.output, options.format)
-    },
-  )
+  async pdf(options: GeneratePdfOptions): Promise<string | undefined> {
+    return await generatePDF({
+      url: options.url,
+      pdfOptions: options.pdfOptions,
+    })
+  }
+
+  async img(options: GenerateImageOptions): Promise<string | undefined> {
+    return await generateImage({
+      url: options.url,
+      screenshotOptions: options.screenshotOptions,
+    })
+  }
+
+  private downloadPDF(options: GeneratePdfOptions) {
+    void (async () => {
+      try {
+        const outputPath = await generatePDF({
+          url: options.url,
+          pdfOptions: options.pdfOptions,
+        })
+        console.log(`Generated: ${outputPath}`)
+        console.log('Done!')
+        process.exit(0)
+      } catch (e) {
+        if (e instanceof Error) {
+          console.error(e.message)
+        }
+        process.exit(1)
+      } finally {
+        await closeBrowser()
+      }
+    })()
+  }
+
+  private downloadImg(options: GenerateImageOptions) {
+    void (async () => {
+      try {
+        const outputPath = await generateImage({
+          url: options.url,
+          screenshotOptions: options.screenshotOptions,
+        })
+        console.log(`Generated: ${outputPath}`)
+        console.log('Done!')
+        process.exit(0)
+      } catch (e) {
+        if (e instanceof Error) {
+          console.error(e.message)
+        }
+        process.exit(1)
+      } finally {
+        await closeBrowser()
+      }
+    })()
+  }
+}
+
+export const webcapt = new Webcapt(new Command())
