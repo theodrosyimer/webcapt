@@ -56,46 +56,42 @@ class Webcapt {
     })
   }
 
-  private downloadPDF(options: GeneratePdfOptions) {
-    void (async () => {
-      try {
-        const outputPath = await generatePDF({
-          url: options.url,
-          pdfOptions: options.pdfOptions,
-        })
-        console.log(`Generated: ${outputPath}`)
-        console.log('Done!')
-        process.exit(0)
-      } catch (e) {
-        if (e instanceof Error) {
-          console.error(e.message)
-        }
-        process.exit(1)
-      } finally {
-        await closeBrowser()
+  private async downloadPDF(options: GeneratePdfOptions) {
+    try {
+      const outputPath = await generatePDF({
+        url: options.url,
+        pdfOptions: options.pdfOptions,
+      })
+      console.log(`Generated: ${outputPath}`)
+      console.log('Done!')
+      process.exit(0)
+    } catch (e) {
+      if (e instanceof Error) {
+        console.error(e.message)
       }
-    })()
+      process.exit(1)
+    } finally {
+      await closeBrowser()
+    }
   }
 
-  private downloadImg(options: GenerateImageOptions) {
-    void (async () => {
-      try {
-        const outputPath = await generateImage({
-          url: options.url,
-          screenshotOptions: options.screenshotOptions,
-        })
-        console.log(`Generated: ${outputPath}`)
-        console.log('Done!')
-        process.exit(0)
-      } catch (e) {
-        if (e instanceof Error) {
-          console.error(e.message)
-        }
-        process.exit(1)
-      } finally {
-        await closeBrowser()
+  private async downloadImg(options: GenerateImageOptions) {
+    try {
+      const outputPath = await generateImage({
+        url: options.url,
+        screenshotOptions: options.screenshotOptions,
+      })
+      console.log(`Generated: ${outputPath}`)
+      console.log('Done!')
+      process.exit(0)
+    } catch (e) {
+      if (e instanceof Error) {
+        console.error(e.message)
       }
-    })()
+      process.exit(1)
+    } finally {
+      await closeBrowser()
+    }
   }
 }
 
