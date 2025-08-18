@@ -21,7 +21,7 @@ describe.concurrent('Webcapt CLI', () => {
   describe('PDF Generation', () => {
     it('should generate PDF with default format', async () => {
       const { userInput, output } = arrange({
-        filename: 'test-default-pdf',
+        filename: 'test-default',
         type: 'pdf',
         extension: 'pdf',
       })
@@ -33,7 +33,7 @@ describe.concurrent('Webcapt CLI', () => {
         },
       })
       expect(existsSync(output)).toBe(true)
-      expect(output).toContain('test-default-pdf.pdf')
+      expect(output).toContain('test-default.pdf')
     })
   })
 
