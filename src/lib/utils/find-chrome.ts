@@ -2,7 +2,7 @@ import puppeteer, { type Browser } from 'puppeteer'
 
 import { type FsPort, nodeFs } from './fs.js'
 
-let chromeBrowser: Browser | null = null
+export let chromeBrowser: Browser | null = null
 export async function getChromeBrowser() {
   chromeBrowser ??= await puppeteer.launch({
     executablePath: findChrome(),

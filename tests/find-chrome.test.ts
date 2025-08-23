@@ -1,9 +1,14 @@
 import { describe, expect, it } from 'vitest'
 
-import { findChrome } from '../src/lib/utils/find-chrome.js'
+import {
+  chromeBrowser,
+  closeBrowser,
+  findChrome,
+  getChromeBrowser,
+} from '../src/lib/utils/find-chrome.js'
 import { inMemoryFs } from '../src/lib/utils/fs.js'
 
-describe.concurrent('Chrome Finding', () => {
+describe('Chrome Finding', () => {
   it('should find Chrome on macOS', () => {
     const macOSPath = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
     const fileChecker = inMemoryFs([macOSPath])
@@ -57,5 +62,18 @@ describe.concurrent('Chrome Finding', () => {
       expect(error).toBeInstanceOf(Error)
       expect((error as Error).message).toContain('Chrome not found')
     }
+  })
+
+  describe('Manage Chrome Browser', () => {
+    it('should launch Chrome', async () => {
+      await getChromeBrowser()
+      expect(chromeBrowser).toBeDefined()
+    })
+
+    it('should close Chrome', async () => {
+      expect(chromeBrowser).toBeDefined()
+      await closeBrowser()
+      expect(chromeBrowser).toBeNull()
+    })
   })
 })
