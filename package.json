@@ -1,6 +1,6 @@
 {
   "name": "webcapt",
-  "version": "0.0.24",
+  "version": "0.0.25",
   "type": "module",
   "description": "A simple cli to screen capture web pages and save them to disk as images or pdfs.",
   "repository": {
