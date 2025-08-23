@@ -11,8 +11,7 @@
   - [Clone the repo](#clone-the-repo)
   - [Install dependencies](#install-dependencies)
   - [Develop](#develop)
-  - [Build the project](#build-the-project)
-  - [Run the project](#run-the-project)
+  - [Build the project and link locally for development](#build-the-project-and-link-locally-for-development)
   - [Run tests](#run-tests)
   - [Submit a pull request](#submit-a-pull-request)
 - [License](#license)
@@ -151,25 +150,44 @@ pnpm install
 ### Develop
 
 ```sh
-pnpm run dev
+pnpm dev
 ```
 
-### Build the project
+**reset the local link**
 
 ```sh
-pnpm run build
+pnpm dev:reset
 ```
 
-### Run the project
+### Build the project and link locally for development
 
 ```sh
-pnpm start
+pnpm build-link
 ```
 
 ### Run tests
 
+**Unit tests**
 ```sh
-npm test
+pnpm test
+```
+
+**Integration tests**
+
+```sh
+pnpm run test:int
+```
+
+**End to end tests**
+
+```sh
+pnpm run test:e2e
+```
+
+**Full test suite**
+
+```sh
+pnpm run test:all
 ```
 
 ### Submit a pull request
