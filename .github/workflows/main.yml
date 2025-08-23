@@ -1,35 +1,41 @@
-name: Lint and Build
+name: NPM Package CI
+
 on:
   push:
-    branches:
-      - '**'
+    branches: ['**']
+  pull_request:
+    branches: ['**']
 
 jobs:
-  lint-and-build:
+  ci:
+    name: Package CI
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [20, 22, 24]
-
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        id: pnpm-install
 
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: '22.18.0'
           cache: 'pnpm'
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Lint & Build
-        run: pnpm lint && pnpm build
+      - name: Lint package code
+        run: pnpm run lint
+
+      - name: Build package
+        run: pnpm run build
+
+      - name: Unit tests
+        run: pnpm run test
+
+      - name: Full test suite (Integration + E2E)
+        run: pnpm run test:all
+        if: github.ref == 'refs/heads/main' || github.base_ref == 'main'
