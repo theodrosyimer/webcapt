@@ -27,7 +27,7 @@
     "releaseNotes": "See [CHANGELOG.md](${repo.repository}/blob/main/CHANGELOG.md) for details."
   },
   "npm": {
-    "publish": true
+    "publish": false
   },
   "plugins": {
     "@release-it/conventional-changelog": {

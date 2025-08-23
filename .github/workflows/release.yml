@@ -64,6 +64,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: pnpm release --ci
 
+      - name: Publish
+        run: pnpm publish --access public
+
       - name: Verify Provenance
         run: |
           PACKAGE_NAME=$(node -p "require('./package.json').name")
