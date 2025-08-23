@@ -23,9 +23,7 @@
     "releaseName": "v${version}",
     "releaseNotes": "See [CHANGELOG.md](${repo.repository}/blob/main/CHANGELOG.md) for details."
   },
-  "npm": {
-    "publish": false
-  },
+  "npm": false,
   "plugins": {
     "@release-it/conventional-changelog": {
       "infile": "CHANGELOG.md",
