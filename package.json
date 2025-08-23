@@ -30,8 +30,8 @@
     "typescript"
   ],
   "scripts": {
-    "build": "pnpm clean && tsc -p tsconfig.json && chmod 755 dist/index.js",
-    "build-link": "pnpm build && pnpm link-cli",
+    "build": "pnpm clean && tsc -p tsconfig.json",
+    "build-link": "pnpm build && chmod 755 dist/index.js && pnpm link-cli",
     "clean": "shx rm -rf dist/*",
     "dev": "tsc -w -p tsconfig.json",
     "dev:reset": "pnpm build-link && pnpm dev",
