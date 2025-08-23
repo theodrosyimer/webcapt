@@ -13,15 +13,21 @@
     "after:bump": [
       "echo '📦 Version bumped to ${version}, preparing for trusted publish...'"
     ],
+    "after:npm:publish": [
+      "echo '✅ Package published with automatic provenance attestation'"
+    ],
     "after:release": [
       "echo '🎉 Successfully released v${version} with provenance!'",
-      "echo '🔍 Package will be published separately with provenance'"
+      "echo '🔍 Verify provenance at: https://npmjs.com/package/${npm.name}'"
     ]
   },
   "github": {
     "release": true,
     "releaseName": "v${version}",
     "releaseNotes": "See [CHANGELOG.md](${repo.repository}/blob/main/CHANGELOG.md) for details."
+  },
+  "npm": {
+    "publish": false
   },
   "plugins": {
     "@release-it/conventional-changelog": {

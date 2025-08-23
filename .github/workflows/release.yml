@@ -62,10 +62,10 @@ jobs:
       - name: Release and Publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: pnpm release --ci
-
-      - name: Publish
+        # run: pnpm release --ci
         run: pnpm publish --access public
+
+      # - name: Publish
 
       - name: Verify Provenance
         run: |
