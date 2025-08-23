@@ -10,7 +10,7 @@ export default defineConfig({
     coverage: {
       provider: 'v8',
       reportsDirectory: './coverage',
-      exclude: [...coverageConfigDefaults.exclude, 'html'],
+      exclude: [...coverageConfigDefaults.exclude, 'html', './src/index.ts'],
     },
     include: ['**/*.test.ts'],
     exclude: [...configDefaults.exclude, 'coverage'],
