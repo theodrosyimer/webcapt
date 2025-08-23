@@ -21,7 +21,7 @@ class Webcapt {
       .option('-o, --output <output>', 'Output file name')
       .option(
         '-f, --format <format>',
-        'Format of the file to download, options: A4 or letter, default: A4',
+        'Format of the file to download, options: A4 or letter',
         'A4',
       )
       .action((options: { url: string; output: string; format: string }) => {
@@ -38,7 +38,7 @@ class Webcapt {
       .option('-o, --output <output>', 'Output file name')
       .option(
         '-f, --format <format>',
-        'Format of the file to download, options: png or jpeg, default: png',
+        'Format of the file to download, options: png or jpeg',
         'png',
       )
       .action((options: { url: string; output: string; format: string }) => {
