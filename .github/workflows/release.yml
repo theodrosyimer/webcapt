@@ -34,7 +34,6 @@ jobs:
         with:
           # ✅ Use Node.js 22.18.0 for guaranteed NPM 11.x compatibility
           node-version: '22.18.0'
-          cache: 'pnpm'
 
       - name: Upgrade to Latest NPM CLI
         run: npm install -g npm@latest
@@ -63,11 +62,10 @@ jobs:
       - name: Release and Publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # ✅ No NPM_TOKEN needed with trusted publishing
         run: pnpm release --ci
 
       - name: Verify Provenance
         run: |
+          PACKAGE_NAME=$(node -p "require('./package.json').name")
           echo "✅ Package published with automatic provenance"
-          echo "🔍 Verify at: https://npmjs.com/package/YOUR_PACKAGE_NAME"
-          echo "📊 Check provenance: npm audit signatures"
+          echo "🔍 Verify at: https://npmjs.com/package/$PACKAGE_NAME"
