@@ -73,7 +73,7 @@ Screenshot the provided url and download as a pdf
 Options:
   -u, --url <url>        URL to download
   -o, --output <output>  Output file name
-  -f, --format <format>  Format of the file to download, options: A4 or letter, default: A4 (default: "A4")
+  -f, --format <format>  Format of the file to download, options: A4 or letter (default: "A4")
   -h, --help             display help for command
 ```
 
@@ -89,7 +89,7 @@ Screenshot the provided url and download as an image
 Options:
   -u, --url <url>        URL to download
   -o, --output <output>  Output file name
-  -f, --format <format>  Format of the file to download, options: png or jpeg, default: png (default: "png")
+  -f, --format <format>  Format of the file to download, options: png or jpeg (default: "png")
   -h, --help             display help for command
 ```
 
