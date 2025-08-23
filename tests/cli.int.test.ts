@@ -7,7 +7,7 @@ import { setup } from './setup.js'
 import { closeBrowser } from '../src/lib/utils/find-chrome.js'
 import { webcapt } from '../src/webcapt.js'
 
-export const DELETE_TEST_FILES = true
+export const DELETE_TEST_FILES = false
 
 describe('Webcapt CLI', () => {
   const { setBaseDirectory } = setup()
