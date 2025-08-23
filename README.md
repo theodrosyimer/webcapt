@@ -3,6 +3,7 @@
 <details open><summary>Table of Contents</summary>
 
 - [Motivation](#motivation)
+- [Prerequisites](#prerequisites)
 - [Quick start](#quick-start)
   - [Install](#install)
 - [Usage](#usage)
@@ -20,8 +21,19 @@
 
 ## Motivation
 
-<!-- ## Prerequisites -->
 A simple cli to screen capture web pages and save them to disk as images or pdfs.
+
+## Prerequisites
+
+- [Node.js](https://nodejs.org)
+- [puppeteer](https://pptr.dev)
+
+> [!IMPORTANT]
+> You need to install `puppeteer` globally to use `webcapt`.
+>
+> ```sh
+> npm install -g puppeteer
+> ```
 
 ## Quick start
 
@@ -34,10 +46,6 @@ npm install -g webcapt
 ```sh
 pnpm install -g webcapt
 ```
-
-
-<!--
- To see this awesome project, navigate to [webcapt](https://webcapt.com). -->
 
 ## Usage
 
