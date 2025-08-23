@@ -13,12 +13,9 @@
     "after:bump": [
       "echo '📦 Version bumped to ${version}, preparing for trusted publish...'"
     ],
-    "after:npm:publish": [
-      "echo '✅ Package published with automatic provenance attestation'"
-    ],
     "after:release": [
       "echo '🎉 Successfully released v${version} with provenance!'",
-      "echo '🔍 Verify provenance at: https://npmjs.com/package/${npm.name}'"
+      "echo '🔍 Package will be published separately with provenance'"
     ]
   },
   "github": {
