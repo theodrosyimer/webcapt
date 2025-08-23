@@ -32,7 +32,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          # ✅ Use Node.js 22.18.0 for guaranteed NPM 11.x compatibility
+          # ✅ Use Node.js 22.18.0 for guaranteed NPM 11.5.1+ compatibility
           node-version: '22.18.0'
 
       - name: Upgrade to Latest NPM CLI
@@ -68,7 +68,8 @@ jobs:
         # run: pnpm release --ci
         run: pnpm publish --access public
 
-      # - name: Publish
+        # - name: Publish
+        # run: pnpm publish --access public
 
       - name: Verify Provenance
         run: |
