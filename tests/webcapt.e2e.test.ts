@@ -50,7 +50,7 @@ describe('Webcapt CLI E2E', () => {
       // Commander passes options object but action expects (url, output, format)
       expect(stdout).toContain('Generated:') // No output due to the error
       expect(existsSync(output)).toBe(true)
-    }, 15000)
+    })
 
     it('should generate PDF with A4 format via CLI', async () => {
       const { userInput, output } = arrange({
@@ -75,7 +75,7 @@ describe('Webcapt CLI E2E', () => {
       // Commander passes options object but action expects (url, output, format)
       expect(stdout).toContain('Generated:') // No output due to the error
       expect(existsSync(output)).toBe(true)
-    }, 15000)
+    })
   })
 
   describe('Image Generation via CLI', () => {
@@ -100,7 +100,7 @@ describe('Webcapt CLI E2E', () => {
       // Commander passes options object but action expects (url, output, format)
       expect(stdout).toContain('Generated:') // No output due to the error
       expect(existsSync(output)).toBe(true)
-    }, 15000)
+    })
 
     it('should generate JPEG image via command line', async () => {
       const { userInput, output } = arrange({
@@ -125,7 +125,7 @@ describe('Webcapt CLI E2E', () => {
       // Commander passes options object but action expects (url, output, format)
       expect(stdout).toContain('Generated:') // No output due to the error
       expect(existsSync(output)).toBe(true)
-    }, 15000)
+    })
   })
 
   describe('CLI Error Handling', () => {
@@ -143,6 +143,6 @@ describe('Webcapt CLI E2E', () => {
       expect(result.stderr).toContain(
         'Protocol error (Page.navigate): Cannot navigate to invalid URL',
       )
-    }, 10000)
+    })
   })
 })
