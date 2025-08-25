@@ -24,8 +24,7 @@
   },
   "github": {
     "release": true,
-    "releaseName": "v${version}",
-    "releaseNotes": "See [CHANGELOG.md](${repo.repository}/blob/main/CHANGELOG.md) for details."
+    "releaseName": "v${version}"
   },
   "npm": {
     "publish": false,
