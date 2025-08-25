@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.5](https://github.com/theodrosyimer/webcapt/compare/1.0.4...1.0.5) (2025-08-25)
+
+### 💎 Style Changes
+
+* **tests:** clean up ([6195b10](https://github.com/theodrosyimer/webcapt/commit/6195b10790e7f17932e0f0121d04255c30b469e9))
+
 ## [1.0.4](https://github.com/theodrosyimer/webcapt/compare/1.0.3...1.0.4) (2025-08-25)
 
 ### 🐛 Bug Fixes
