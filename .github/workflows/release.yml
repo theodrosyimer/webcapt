@@ -13,10 +13,9 @@ jobs:
   release-and-publish:
     runs-on: ubuntu-latest
 
-    # ✅ Only required permissions for trusted publishing
     permissions:
-      contents: write # Git operations, create releases
-      id-token: write # OIDC for trusted publishing
+      contents: write
+      id-token: write
 
     steps:
       - name: Checkout
@@ -32,7 +31,6 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          # ✅ Use Node.js 22.18.0 for guaranteed NPM 11.5.1+ compatibility
           node-version: '22.18.0'
 
       - name: Upgrade to Latest NPM CLI

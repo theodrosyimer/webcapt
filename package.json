@@ -43,8 +43,8 @@
     "test:all": "vitest --reporter=verbose",
     "test:coverage": "vitest run --coverage",
     "test:debug": "vitest --inspect-brk --inspect --logHeapUsage --no-file-parallelism --ui",
-    "test:e2e": "vitest **/*e2e.test.ts --reporter=verbose ",
-    "test:int": "vitest **/*int.test.ts --reporter=verbose ",
+    "test:e2e": "vitest **/*e2e.test.ts --reporter=verbose",
+    "test:int": "vitest **/*int.test.ts --reporter=verbose",
     "test:ui": "vitest --coverage.enabled=true --ui"
   },
   "dependencies": {

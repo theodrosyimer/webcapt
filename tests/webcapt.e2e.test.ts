@@ -46,9 +46,7 @@ describe('Webcapt CLI E2E', () => {
         userInput!,
       ])
 
-      // CLI currently broken - action callback has wrong signature
-      // Commander passes options object but action expects (url, output, format)
-      expect(stdout).toContain('Generated:') // No output due to the error
+      expect(stdout).toContain('Generated:')
       expect(existsSync(output)).toBe(true)
     })
 
@@ -71,9 +69,7 @@ describe('Webcapt CLI E2E', () => {
         'A4',
       ])
 
-      // CLI currently broken - action callback has wrong signature
-      // Commander passes options object but action expects (url, output, format)
-      expect(stdout).toContain('Generated:') // No output due to the error
+      expect(stdout).toContain('Generated:')
       expect(existsSync(output)).toBe(true)
     })
   })
@@ -96,9 +92,7 @@ describe('Webcapt CLI E2E', () => {
         userInput!,
       ])
 
-      // CLI currently broken - action callback has wrong signature
-      // Commander passes options object but action expects (url, output, format)
-      expect(stdout).toContain('Generated:') // No output due to the error
+      expect(stdout).toContain('Generated:')
       expect(existsSync(output)).toBe(true)
     })
 
@@ -121,9 +115,7 @@ describe('Webcapt CLI E2E', () => {
         'jpeg',
       ])
 
-      // CLI currently broken - action callback has wrong signature
-      // Commander passes options object but action expects (url, output, format)
-      expect(stdout).toContain('Generated:') // No output due to the error
+      expect(stdout).toContain('Generated:')
       expect(existsSync(output)).toBe(true)
     })
   })
