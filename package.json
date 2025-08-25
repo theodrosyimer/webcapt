@@ -38,7 +38,6 @@
     "format": "prettier --write . --ignore-path .gitignore",
     "link-cli": "(yarn unlink --global || true) && chmod 755 dist/index.js && yarn link --global",
     "lint": "eslint .",
-    "postinstall": "npx puppeteer browsers install chrome",
     "release": "release-it --ci",
     "test": "vitest --exclude \"**/*{int,e2e}.test.ts\" --reporter=verbose",
     "test:all": "vitest --reporter=verbose",
