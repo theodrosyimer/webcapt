@@ -38,7 +38,7 @@
     "format": "prettier --write . --ignore-path .gitignore",
     "link-cli": "(yarn unlink --global || true) && chmod 755 dist/index.js && yarn link --global",
     "lint": "eslint .",
-    "release": "release-it --ci",
+    "release": "release-it -VV --ci",
     "test": "vitest --exclude \"**/*{int,e2e}.test.ts\" --reporter=verbose",
     "test:all": "vitest --reporter=verbose",
     "test:coverage": "vitest run --coverage",

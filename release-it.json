@@ -1,5 +1,4 @@
 {
-  "verbose": 2,
   "git": {
     "requireBranch": "main",
     "commitMessage": "chore(release): release v${version}",
