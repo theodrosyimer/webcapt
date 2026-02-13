@@ -9,12 +9,12 @@ const defaultPdfOptions = {
 
 export type GeneratePdfOptions = {
   url: string
-  options?: PDFOptions
+  pdfOptions?: PDFOptions
 }
 
 export async function generatePDF({
   url,
-  options = {},
+  pdfOptions = {},
 }: GeneratePdfOptions): Promise<string | undefined> {
   const browser = await getChromeBrowser()
   const page = await browser.newPage()
@@ -23,13 +23,13 @@ export async function generatePDF({
     await page.goto(url, { waitUntil: 'networkidle0' })
     await page.emulateMediaType('screen')
 
-    options.path = options.path ? `${options.path}.pdf` : undefined
+    pdfOptions.path = pdfOptions.path ? `${pdfOptions.path}.pdf` : undefined
     await page.pdf({
       ...defaultPdfOptions,
-      ...options,
+      ...pdfOptions,
     })
 
-    return options.path
+    return pdfOptions.path
   } finally {
     await page.close()
   }

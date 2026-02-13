@@ -24,10 +24,10 @@ class Webcapt {
         'Format of the file to download, options: A4 or letter',
         'A4',
       )
-      .action(({ url, output, format }: { url: string; output: string; format: string }) => {
+      .action((options: { url: string; output: string; format: string }) => {
         void this.pdf({
-          url,
-          options: { path: output, format: format as PaperFormat },
+          url: options.url,
+          pdfOptions: { path: options.output, format: options.format as PaperFormat },
         })
       })
 
@@ -41,22 +41,22 @@ class Webcapt {
         'Format of the file to download, options: png or jpeg',
         'png',
       )
-      .action(({ url, output, format }: { url: string; output: string; format: string }) => {
+      .action((options: { url: string; output: string; format: string }) => {
         void this.img({
-          url,
-          options: {
-            path: output as ScreenshotOptions['path'],
-            type: format as ImageFormat,
+          url: options.url,
+          screenshotOptions: {
+            path: options.output as ScreenshotOptions['path'],
+            type: options.format as ImageFormat,
           },
         })
       })
   }
 
-  async pdf({ url, options }: GeneratePdfOptions): Promise<void> {
+  async pdf(options: GeneratePdfOptions): Promise<void> {
     try {
       const outputPath = await generatePDF({
-        url,
-        options,
+        url: options.url,
+        pdfOptions: options.pdfOptions,
       })
       console.log(`Generated: ${outputPath}`)
       console.log('Done!')
@@ -69,11 +69,11 @@ class Webcapt {
     }
   }
 
-  async img({ url, options }: GenerateImageOptions): Promise<void> {
+  async img(options: GenerateImageOptions): Promise<void> {
     try {
       const outputPath = await generateImage({
-        url,
-        options,
+        url: options.url,
+        screenshotOptions: options.screenshotOptions,
       })
       console.log(`Generated: ${outputPath}`)
       console.log('Done!')

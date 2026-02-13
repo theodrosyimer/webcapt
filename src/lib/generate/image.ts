@@ -8,16 +8,16 @@ const defaultScreenshotOptions = {
 
 export type GenerateImageOptions = {
   url: string
-  options?: ScreenshotOptions
+  screenshotOptions?: ScreenshotOptions
 }
 
 export async function generateImage({
   url,
-  options = {},
+  screenshotOptions = {},
 }: GenerateImageOptions): Promise<string | undefined> {
   const browser = await getChromeBrowser()
   const page = await browser.newPage()
-  options.type ??= 'png'
+  screenshotOptions.type ??= 'png'
 
   try {
     await page.setViewport({
@@ -27,16 +27,16 @@ export async function generateImage({
 
     await page.goto(url, { waitUntil: 'networkidle0' })
 
-    options.path = options.path
-      ? (`${options.path}.${options.type}` satisfies ScreenshotOptions['path'])
+    screenshotOptions.path = screenshotOptions.path
+      ? (`${screenshotOptions.path}.${screenshotOptions.type}` satisfies ScreenshotOptions['path'])
       : undefined
 
     await page.screenshot({
       ...defaultScreenshotOptions,
-      ...options,
+      ...screenshotOptions,
     })
 
-    return options.path
+    return screenshotOptions.path
   } finally {
     await page.close()
   }
