@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.0.6](https://github.com/theodrosyimer/webcapt/compare/1.0.5...1.0.6) (2026-02-13)
+
+### 📚 Documentation
+
+* **README:** remove deprecated flags section and clean up comments ([8c42dbc](https://github.com/theodrosyimer/webcapt/commit/8c42dbca612aea06bebca96b122188ef82991dec))
+
+### ♻️ Code Refactoring
+
+* **generateImage:** rename screenshotOptions to options for consisency ([073a9b9](https://github.com/theodrosyimer/webcapt/commit/073a9b968895f60066d7b553a0be51edb11e8568))
+* **generatePdf:** rename pdfOptions to options for consistency ([c61c05e](https://github.com/theodrosyimer/webcapt/commit/c61c05edf04e846bc89630e65ff619a82826b793))
+* **webcapt:** destructure function parameters ([c8039fb](https://github.com/theodrosyimer/webcapt/commit/c8039fbb3204dbd54ebcb1d7a49e7f6bec358a99))
+
 ## [1.0.5](https://github.com/theodrosyimer/webcapt/compare/1.0.4...1.0.5) (2025-08-25)
 
 ### 💎 Style Changes
