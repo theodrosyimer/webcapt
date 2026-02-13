@@ -72,5 +72,8 @@
   },
   "eslintConfig": {
     "root": true
+  },
+  "overrides": {
+    "js-yaml": "^4.1.1"
   }
 }
