@@ -100,26 +100,6 @@ Options:
   -h, --help             display help for command
 ```
 
-<!--
-Available flags:
-
-- `-i`, `--input` - Path to input file or directory
-- `-o`, `--output` - Path to output file or directory
-- `-c`, `--config` - Path to config file
-- `-t`, `--template` - Path to template file
-- `-e`, `--env` - Environment to use
-- `--env-file` - Path to environment file
-- `-b`, `--base` - Base path to use
-- `-r`, `--root` - Root path to use
-- `-p`, `--port` - Port to use
-- `-h`, `--help` - Show help
-- `-v`, `--version` - Show version number
-- `-d`, `--debug` - Sho9-+w debug logs
-- `-f`, `--force` - Force overwrite of output file
-- `-q`, `--quiet` - Show only errors
-- `-s`, `--silent` - No output at all
-- `--ext` - File extension to use -->
-
 ### Examples
 
 > Note: For pdfs and images, you don't need to specify the file's extension if you want to download to a format other than the default, you can use the `-f` flag and specify the file's format.
@@ -203,8 +183,6 @@ pnpm run test:all
 If you'd like to contribute code, documentation, or any other improvements, please [fork the project](https://gihub.com/theodrosyimer/webcapt/fork), make your changes, and submit a pull request.
 
 If you're unsure about adding a feature or fixing a bug, create an issue to discuss it first.
-
-<!-- ## Related -->
 
 ## License
 
