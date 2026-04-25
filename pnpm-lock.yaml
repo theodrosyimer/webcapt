@@ -17,7 +17,7 @@ importers:
     devDependencies:
       '@release-it/conventional-changelog':
         specifier: ^11.0.0
-        version: 11.0.0(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.4.0)(release-it@20.0.1(@types/node@25.6.0)(magicast@0.5.2))
+        version: 11.0.0(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.2.0)(release-it@20.0.1(@types/node@25.6.0)(magicast@0.5.2))
       '@thyi/eslint-config':
         specifier: ^2.7.0
         version: 2.7.0(eslint@9.35.0(jiti@2.6.1))(prettier@3.8.3)(turbo@2.9.6)(typescript@6.0.3)
@@ -2207,10 +2207,6 @@ packages:
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
 
-  js-yaml@4.1.0:
-    resolution: {integrity: sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==}
-    hasBin: true
-
   js-yaml@4.1.1:
     resolution: {integrity: sha512-qQKT4zQxXl8lLwBtHMWwaTcGfFOZviOJet3Oy/xmGk2gZH677CJM9EvtfdSkgWcATZhj/55JZ0rmy3myCT5lsA==}
     hasBin: true
@@ -3667,9 +3663,9 @@ snapshots:
       - bare-buffer
       - supports-color
 
-  '@release-it/conventional-changelog@11.0.0(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.4.0)(release-it@20.0.1(@types/node@25.6.0)(magicast@0.5.2))':
+  '@release-it/conventional-changelog@11.0.0(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.2.0)(release-it@20.0.1(@types/node@25.6.0)(magicast@0.5.2))':
     dependencies:
-      '@conventional-changelog/git-client': 2.7.0(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.4.0)
+      '@conventional-changelog/git-client': 2.7.0(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.2.0)
       concat-stream: 2.0.0
       conventional-changelog: 7.2.0(conventional-commits-filter@5.0.0)
       conventional-changelog-angular: 8.3.1
@@ -4409,7 +4405,7 @@ snapshots:
     dependencies:
       env-paths: 2.2.1
       import-fresh: 3.3.1
-      js-yaml: 4.1.0
+      js-yaml: 4.1.1
       parse-json: 5.2.0
     optionalDependencies:
       typescript: 6.0.3
@@ -5340,10 +5336,6 @@ snapshots:
   js-tokens@10.0.0: {}
 
   js-tokens@4.0.0: {}
-
-  js-yaml@4.1.0:
-    dependencies:
-      argparse: 2.0.1
 
   js-yaml@4.1.1:
     dependencies:
