@@ -37,7 +37,7 @@
     "dev:reset": "pnpm build-link && pnpm dev",
     "format": "prettier --write . --ignore-path .gitignore",
     "link-cli": "(yarn unlink --global || true) && chmod 755 dist/index.js && yarn link --global",
-    "lint": "eslint .",
+    "lint": "eslint . --fix",
     "release": "release-it --ci",
     "test": "vitest --exclude \"**/*{int,e2e}.test.ts\" --reporter=verbose",
     "test:all": "vitest --reporter=verbose",
@@ -45,7 +45,8 @@
     "test:debug": "vitest --inspect-brk --inspect --logHeapUsage --no-file-parallelism --ui",
     "test:e2e": "vitest **/*e2e.test.ts --reporter=verbose",
     "test:int": "vitest **/*int.test.ts --reporter=verbose",
-    "test:ui": "vitest --coverage.enabled=true --ui"
+    "test:ui": "vitest --coverage.enabled=true --ui",
+    "ts:check": "tsc --noEmit"
   },
   "dependencies": {
     "commander": "^14.0.3",
@@ -66,15 +67,15 @@
     "typescript": "^6.0.3",
     "vitest": "^4.1.5"
   },
+  "overrides": {
+    "js-yaml": "^4.1.1",
+    "tar-fs": "^3.1.1"
+  },
   "publishConfig": {
     "access": "public",
     "tag": "latest"
   },
   "eslintConfig": {
     "root": true
-  },
-  "overrides": {
-    "js-yaml": "^4.1.1",
-    "tar-fs": "^3.1.1"
   }
 }
