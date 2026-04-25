@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.1.2](https://github.com/theodrosyimer/webcapt/compare/1.1.1...1.1.2) (2026-04-25)
+
+### 🐛 Bug Fixes
+
+* remove deprecated brace-expansion and update minimatch version ([26a2a8a](https://github.com/theodrosyimer/webcapt/commit/26a2a8a1ffc3414976b997bd75bbd056401a02fc))
+* remove deprecated js-yaml ([d0e26c8](https://github.com/theodrosyimer/webcapt/commit/d0e26c8aa50aa7beb2dcb1cd00d9e3b5aa81db87))
+* remove deprecated tar-fs dependency from overrides ([37b2912](https://github.com/theodrosyimer/webcapt/commit/37b2912d5df61e7beb6f2b5540a342d3e37bf12a))
+* update conventional-changelog parser version and remove deprecated picomatch dependency ([b3eb5c6](https://github.com/theodrosyimer/webcapt/commit/b3eb5c6cfe9f5f08741aca4431b7a7f771755cf4))
+
 ## [1.1.1](https://github.com/theodrosyimer/webcapt/compare/1.1.0...1.1.1) (2026-04-25)
 
 ### 🐛 Bug Fixes
