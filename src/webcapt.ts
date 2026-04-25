@@ -1,5 +1,5 @@
 import { Command } from 'commander'
-import type { ImageFormat, PaperFormat, ScreenshotOptions } from 'puppeteer'
+import type { ImageFormat, PaperFormat } from 'puppeteer'
 
 import { type GenerateImageOptions, generateImage } from './lib/generate/image.js'
 import { type GeneratePdfOptions, generatePDF } from './lib/generate/pdf.js'
@@ -45,18 +45,18 @@ class Webcapt {
         void this.img({
           url: options.url,
           screenshotOptions: {
-            path: options.output as ScreenshotOptions['path'],
+            path: options.output,
             type: options.format as ImageFormat,
           },
         })
       })
   }
 
-  async pdf(options: GeneratePdfOptions): Promise<void> {
+  async pdf({ url, pdfOptions = {} }: GeneratePdfOptions): Promise<void> {
     try {
       const outputPath = await generatePDF({
-        url: options.url,
-        pdfOptions: options.pdfOptions,
+        url,
+        pdfOptions,
       })
       console.log(`Generated: ${outputPath}`)
       console.log('Done!')
@@ -69,11 +69,11 @@ class Webcapt {
     }
   }
 
-  async img(options: GenerateImageOptions): Promise<void> {
+  async img({ url, screenshotOptions = {} }: GenerateImageOptions): Promise<void> {
     try {
       const outputPath = await generateImage({
-        url: options.url,
-        screenshotOptions: options.screenshotOptions,
+        url,
+        screenshotOptions,
       })
       console.log(`Generated: ${outputPath}`)
       console.log('Done!')
