@@ -1,0 +1,14 @@
+**/node_modules/*
+**/bower_components/*
+**/build/*
+**/coverage/*
+**/dist/*
+**/lib/*
+**/public/*
+**/output/*
+
+.specstory/*
+
+pnpm-lock.yaml
+npm-lock.json
+yarn.lock
