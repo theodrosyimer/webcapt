@@ -1,5 +1,7 @@
 # Changelog
 
+## [1.1.3](https://github.com/theodrosyimer/webcapt/compare/1.1.2...1.1.3) (2026-04-25)
+
 ## [1.1.2](https://github.com/theodrosyimer/webcapt/compare/1.1.1...1.1.2) (2026-04-25)
 
 ### 🐛 Bug Fixes
