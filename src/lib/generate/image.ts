@@ -29,7 +29,7 @@ export async function generateImage({
 
     screenshotOptions.path = screenshotOptions.path
       ? (`${screenshotOptions.path}.${screenshotOptions.type}` satisfies ScreenshotOptions['path'])
-      : 'screenshot.png'
+      : ''
 
     await page.screenshot({
       ...defaultScreenshotOptions,

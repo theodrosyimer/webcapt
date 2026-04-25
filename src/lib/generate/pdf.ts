@@ -23,7 +23,7 @@ export async function generatePDF({
     await page.goto(url, { waitUntil: 'networkidle0' })
     await page.emulateMediaType('screen')
 
-    pdfOptions.path = pdfOptions.path ? `${pdfOptions.path}.pdf` : 'output.pdf'
+    pdfOptions.path = pdfOptions.path ? `${pdfOptions.path}.pdf` : ''
     await page.pdf({
       ...defaultPdfOptions,
       ...pdfOptions,
