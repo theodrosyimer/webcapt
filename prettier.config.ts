@@ -1,6 +1,7 @@
+import { type Config } from 'prettier'
+
 /**
  * @see https://prettier.io/docs/configuration
- * @type {import('prettier').Config}
  * @see https://github.com/kurttheviking/prettier-plugin-pkg
  */
 const config = {
@@ -16,6 +17,6 @@ const config = {
   singleQuote: true,
   trailingComma: 'all',
   plugins: ['prettier-plugin-pkg'],
-}
+} satisfies Config
 
 export default config
