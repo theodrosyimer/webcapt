@@ -1,7 +1,5 @@
 import { existsSync, mkdirSync, unlinkSync } from 'fs'
 
-import type { ScreenshotOptions } from 'puppeteer'
-
 const TEST_BASE_DIR = 'generated-test-files'
 
 export const setup = () => {
@@ -25,13 +23,13 @@ export const setup = () => {
           extension: string
         }) => {
           if (!filename) {
-            return { userInput: undefined, output: '' }
+            return { userInput: '', output: '' }
           }
           if (type === 'image') {
             testFiles.push(`${modifiedBaseDir}/${filename}.${extension}`)
             const userInput = `${modifiedBaseDir}/${filename}`
             return {
-              userInput: userInput as ScreenshotOptions['path'],
+              userInput,
               output: `${userInput}.${extension}`,
             }
           }

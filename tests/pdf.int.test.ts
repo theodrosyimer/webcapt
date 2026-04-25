@@ -175,7 +175,7 @@ describe('Feature: PDF Generation', () => {
 
   it('should do nothing when an input is not provided', async () => {
     const { userInput } = arrange({
-      filename: undefined,
+      filename: '',
       type: 'pdf',
       extension: 'pdf',
     })
@@ -187,7 +187,7 @@ describe('Feature: PDF Generation', () => {
       },
     })
 
-    expect(result).toBeUndefined()
+    expect(result).toBe('')
     expect(existsSync(result ?? '')).toBe(false)
   })
 

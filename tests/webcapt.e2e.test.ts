@@ -43,7 +43,7 @@ describe('Webcapt CLI E2E', () => {
         '--url',
         'data:text/html,<h1>E2E PDF Test</h1><p>Generated via CLI</p>',
         '--output',
-        userInput!,
+        userInput,
       ])
 
       expect(stdout).toContain('Generated:')
@@ -64,7 +64,7 @@ describe('Webcapt CLI E2E', () => {
         '--url',
         'data:text/html,<h1>A4 Format Test</h1>',
         '--output',
-        userInput!,
+        userInput,
         '--format',
         'A4',
       ])
@@ -89,7 +89,7 @@ describe('Webcapt CLI E2E', () => {
         '--url',
         'data:text/html,<h1>E2E PNG Test</h1><p>Generated via CLI</p>',
         '--output',
-        userInput!,
+        userInput,
       ])
 
       expect(stdout).toContain('Generated:')
@@ -110,7 +110,7 @@ describe('Webcapt CLI E2E', () => {
         '--url',
         'data:text/html,<h1>E2E JPEG Test</h1>',
         '--output',
-        userInput!,
+        userInput,
         '--format',
         'jpeg',
       ])

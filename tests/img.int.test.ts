@@ -1,6 +1,5 @@
 import { existsSync } from 'fs'
 
-import type { ScreenshotOptions } from 'puppeteer'
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 
 import { DELETE_TEST_FILES } from './cli.int.test.js'
@@ -36,7 +35,7 @@ describe('Feature: Image Generation', () => {
 
       const result = await generateImage({
         url: 'data:text/html,<h1>Test Page</h1><p>This is a test</p>',
-        screenshotOptions: { type: 'png', path: userInput as ScreenshotOptions['path'] },
+        screenshotOptions: { type: 'png', path: userInput },
       })
 
       expect(result).toBe(output)
@@ -51,7 +50,7 @@ describe('Feature: Image Generation', () => {
 
       await generateImage({
         url: 'data:text/html,<h1>Test Page</h1><p>This is a test</p>',
-        screenshotOptions: { type: 'png', path: userInput as ScreenshotOptions['path'] },
+        screenshotOptions: { type: 'png', path: userInput },
       })
 
       expect(existsSync(output)).toBe(true)
@@ -68,7 +67,7 @@ describe('Feature: Image Generation', () => {
 
       const result = await generateImage({
         url: 'data:text/html,<h1>JPEG Test</h1><p>This should be a JPEG</p>',
-        screenshotOptions: { type: 'jpeg', path: userInput as ScreenshotOptions['path'] },
+        screenshotOptions: { type: 'jpeg', path: userInput },
       })
 
       expect(result).toBe(output)
@@ -83,7 +82,7 @@ describe('Feature: Image Generation', () => {
 
       await generateImage({
         url: 'data:text/html,<h1>JPEG Test</h1><p>This should be a JPEG</p>',
-        screenshotOptions: { type: 'jpeg', path: userInput as ScreenshotOptions['path'] },
+        screenshotOptions: { type: 'jpeg', path: userInput },
       })
 
       expect(existsSync(output)).toBe(true)
@@ -100,7 +99,7 @@ describe('Feature: Image Generation', () => {
 
       const result = await generateImage({
         url: 'data:text/html,<h1>Default Format Test</h1>',
-        screenshotOptions: { type: 'png', path: userInput as ScreenshotOptions['path'] },
+        screenshotOptions: { type: 'png', path: userInput },
       })
 
       expect(result).toBe(output)
@@ -115,7 +114,7 @@ describe('Feature: Image Generation', () => {
 
       await generateImage({
         url: 'data:text/html,<h1>Default Format Test</h1>',
-        screenshotOptions: { type: 'png', path: userInput as ScreenshotOptions['path'] },
+        screenshotOptions: { type: 'png', path: userInput },
       })
 
       expect(existsSync(output)).toBe(true)
@@ -128,7 +127,7 @@ describe('Feature: Image Generation', () => {
       screenshotOptions: { type: 'png' },
     })
 
-    expect(result).toBeUndefined()
+    expect(result).toBe('')
     expect(existsSync(result ?? '')).toBe(false)
   })
 
@@ -136,7 +135,6 @@ describe('Feature: Image Generation', () => {
     await expect(
       generateImage({
         url: 'invalid-url',
-        // @ts-expect-error - invalid path
         screenshotOptions: { path: 'test-invalid' },
       }),
     ).rejects.toThrow()

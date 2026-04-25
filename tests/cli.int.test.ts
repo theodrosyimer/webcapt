@@ -1,6 +1,5 @@
 import { existsSync } from 'fs'
 
-import type { ScreenshotOptions } from 'puppeteer'
 import { afterAll, describe, expect, it } from 'vitest'
 
 import { setup } from './setup.js'
@@ -48,7 +47,7 @@ describe('Webcapt CLI', () => {
 
       await webcapt.img({
         url: 'data:text/html,<h1>Default Image Format</h1>',
-        screenshotOptions: { path: userInput as ScreenshotOptions['path'] },
+        screenshotOptions: { path: userInput },
       })
 
       expect(existsSync(output)).toBe(true)
