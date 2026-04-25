@@ -1,5 +1,29 @@
 # Changelog
 
+## [1.1.0](https://github.com/theodrosyimer/webcapt/compare/1.0.9...1.1.0) (2026-04-25)
+
+### ✨ Features
+
+* add Prettier configuration file for code formatting ([cfefcdb](https://github.com/theodrosyimer/webcapt/commit/cfefcdb0f337313c233c34c83597db95d640697d))
+
+### 🐛 Bug Fixes
+
+* **eslint:** update project path in parserOptions to use tsconfig.json ([442003f](https://github.com/theodrosyimer/webcapt/commit/442003f54a504d949c426e130141dcc2feef787b))
+* **generateImage:** set default screenshot path to 'screenshot.png' ([2db7c99](https://github.com/theodrosyimer/webcapt/commit/2db7c991c154886762a5c182f03acfed7f08327d))
+* **generatePDF:** set default PDF output path to 'output.pdf' ([284a270](https://github.com/theodrosyimer/webcapt/commit/284a2707103649717c5cca126d1ccc60999f54ce))
+* **package.json:** update lint script to automatically fix issues and add ts:check script ([03c5781](https://github.com/theodrosyimer/webcapt/commit/03c57811f059b1ab696dd850960bf5f46b11aa61))
+* remove default output filename for screenshots and PDFs ([6025394](https://github.com/theodrosyimer/webcapt/commit/602539435a3bbaf71f4c0a1e1f8f37a904bf1071))
+* remove languageOptions from ESLint configuration ([e219cdd](https://github.com/theodrosyimer/webcapt/commit/e219cdd6c88b85c887be8523092d95b8b049df37))
+* remove type assertion for userInput in screenshotOptions ([f4400f8](https://github.com/theodrosyimer/webcapt/commit/f4400f8c3c16ab40f6f09e3676f03517c6b64354))
+
+### 💎 Style Changes
+
+* format files ([b3f7318](https://github.com/theodrosyimer/webcapt/commit/b3f73186a4110896baf08c38e1dcbc209050bfba))
+
+### ♻️ Code Refactoring
+
+* simplify parameter handling in pdf and img methods ([671b80a](https://github.com/theodrosyimer/webcapt/commit/671b80abb8bba95444626afe9e063d8e318871d2))
+
 ## [1.0.9](https://github.com/theodrosyimer/webcapt/compare/1.0.8...1.0.9) (2026-02-13)
 
 ## [1.0.8](https://github.com/theodrosyimer/webcapt/compare/1.0.7...1.0.8) (2026-02-13)
