@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.1.1](https://github.com/theodrosyimer/webcapt/compare/1.1.0...1.1.1) (2026-04-25)
+
+### 🐛 Bug Fixes
+
+* replace shx with rimraf for cleaning dist directory ([c302134](https://github.com/theodrosyimer/webcapt/commit/c30213401ec9b4f557772b3b66b24d0b787f13d1))
+
 ## [1.1.0](https://github.com/theodrosyimer/webcapt/compare/1.0.9...1.1.0) (2026-04-25)
 
 ### ✨ Features
