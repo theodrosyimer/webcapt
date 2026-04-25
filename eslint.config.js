@@ -6,7 +6,7 @@ export default [
     languageOptions: {
       parserOptions: {
         tsconfigRootDir: import.meta.dirname,
-        project: ['./tsconfig.eslint.json'],
+        project: ['./tsconfig.json'],
       },
     },
     rules: {
